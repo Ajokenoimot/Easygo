@@ -10,11 +10,11 @@ export default defineConfig(({ mode }) => {
 
   return {
     server: {
-      host: "0.0.0.0", // ✅ ensures compatibility with Render, Vercel, etc.
-      port: 5173, // default vite port
+      host: "0.0.0.0",
+      port: 5173,
       proxy: {
         "/api": {
-          target: env.VITE_API_URL || "http://localhost:8080", // ✅ Proxy backend calls
+          target: env.VITE_API_URL || "http://localhost:8080",
           changeOrigin: true,
           secure: false,
         },
@@ -29,7 +29,9 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      "process.env": env, // ✅ allows access to .env vars in components
+      "process.env.VITE_API_URL": JSON.stringify(env.VITE_API_URL),
+      "process.env.VITE_SUPABASE_URL": JSON.stringify(env.VITE_SUPABASE_URL),
+      "process.env.VITE_SUPABASE_ANON_KEY": JSON.stringify(env.VITE_SUPABASE_ANON_KEY),
     },
   };
 });
