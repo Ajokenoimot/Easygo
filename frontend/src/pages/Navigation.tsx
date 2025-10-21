@@ -41,13 +41,13 @@ export default function Navigation() {
   };
 
   return (
-    <div className="min-h-screen grid md:grid-cols-2 gap-6 p-6 bg-gray-50">
+    <div className="min-h-screen grid md:grid-cols-2 gap-6 p-6 bg-background">
       {/* Left: Map */}
-      <div id="map-container" className="rounded-xl shadow-lg h-[80vh]" />
+      <div id="map-container" className="rounded-xl shadow-elegant border border-border h-[80vh]" />
 
       {/* Right: Destination input and video */}
       <div className="flex flex-col space-y-6">
-        <h1 className="text-3xl font-bold text-green-700">Find Your Route</h1>
+        <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">Find Your Route</h1>
         <Input
           type="text"
           placeholder="Enter your destination..."
@@ -56,14 +56,14 @@ export default function Navigation() {
         />
         <Button
           onClick={handleGenerate}
-          className="bg-green-600 hover:bg-green-700 text-white"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-soft hover:shadow-glow transition-all duration-300"
         >
           Show Route & Video
         </Button>
 
         {videoUrl && (
-          <div className="mt-4">
-            <h2 className="text-lg font-semibold mb-2">
+          <div className="mt-4 animate-slide-up">
+            <h2 className="text-xl font-semibold mb-2 text-foreground">
               Video Preview of {destination}
             </h2>
             <video
@@ -71,7 +71,7 @@ export default function Navigation() {
               controls
               autoPlay
               loop
-              className="rounded-lg shadow-md w-full h-64 object-cover"
+              className="rounded-xl shadow-elegant border border-border w-full h-64 object-cover"
             />
           </div>
         )}

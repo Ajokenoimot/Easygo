@@ -52,14 +52,15 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-green-50 to-green-100">
-      <Card className="w-full max-w-md p-8 shadow-lg bg-white">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
+      <Card className="w-full max-w-md p-8 shadow-elegant bg-card border-border relative z-10">
         <div className="text-center mb-8">
-          <div className="h-20 w-20 rounded-full bg-green-600 flex items-center justify-center mx-auto mb-4">
+          <div className="h-20 w-20 rounded-full bg-gradient-primary flex items-center justify-center mx-auto mb-4 shadow-glow">
             <Navigation className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-green-700">NavGuide</h1>
-          <p className="text-gray-500 mt-2">
+          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">NavGuide</h1>
+          <p className="text-muted-foreground mt-2">
             {isLogin ? "Welcome back" : "Create your account"}
           </p>
         </div>
@@ -95,20 +96,20 @@ export default function Auth() {
           </div>
 
           <Button
-            className="w-full bg-green-600 hover:bg-green-700"
+            className="w-full bg-primary hover:bg-primary/90 shadow-soft hover:shadow-glow transition-all duration-300"
             disabled={loading}
           >
             {loading ? "Please wait..." : isLogin ? "Sign In" : "Sign Up"}
           </Button>
         </form>
 
-        <p className="text-center mt-6 text-green-700">
+        <p className="text-center mt-6 text-muted-foreground">
           {isLogin ? (
-            <button onClick={() => setIsLogin(false)}>
+            <button onClick={() => setIsLogin(false)} className="hover:text-primary transition-colors">
               Don't have an account? Sign up
             </button>
           ) : (
-            <button onClick={() => setIsLogin(true)}>
+            <button onClick={() => setIsLogin(true)} className="hover:text-primary transition-colors">
               Already have an account? Sign in
             </button>
           )}
